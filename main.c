@@ -9,11 +9,11 @@ int main(int ac, char **av)
 		return 1;
 	}
 	t_lex lex;
-	lex_init(&lex, av[1]);
+	lex_init(&lex, av[1]); // initialize lexer
 	lex_advance(&lex); // initialize first token
 	long long result = parse_expr(&lex); // parse the expression
 	if (lex.token != T_EOF) // if not at end of input, error
-		parse_error_char(lex.input[lex.pos]); // unexpected character
+		parse_error_here(&lex); // unexpected character
 	printf("%lld\n", result); // print the result
 	return 0;
 }
