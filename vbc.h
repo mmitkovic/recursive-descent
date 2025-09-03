@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   vbc.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmitkovi <mmitkovi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/03 11:49:57 by mmitkovi          #+#    #+#             */
+/*   Updated: 2025/09/03 11:49:58 by mmitkovi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef VBC_H
 # define VBC_H
 
@@ -24,11 +36,11 @@ void lex_advance(t_lex *lex); // advance to next token (set lex->token and lex->
 long long parse_expr(t_lex *lex); // parse an expression and return its value
 long long parse_term(t_lex *lex); // parse a term and return its value
 long long parse_factor(t_lex *lex); // parse a factor and return its value
-void parse_error_here(t_lex *lex); // pritns "Unexpected token 'c'" and exits, where c is current token or '?' if unknown
 
 /* errors */
 void parse_error_char(char c); // pritnd "Unexpected character: c" and exits
 void parse_error_eoi(void); // pritns "Unexpected end of input" and exits
+void parse_error_here(t_lex *lex); // pritns "Unexpected token 'c'" and exits, where c is current token or '?' if unknown
 
 /* utils */
 int ft_isdigit(unsigned char c); // returns 1 if c is a digit, 0 otherwise
